@@ -8,10 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 
 .hero {
   background: url(./images/pawmate_hero.png) no-repeat center center;
@@ -26,4 +26,16 @@ code {
 
 .navbar {
   padding: 20px 40px !important;
+}
+
+.hero-text {
+  position: absolute;
+  max-width: 400px;
+  top: 20%;
+  left: 10%;
+}
+
+h1 {
+  line-height: 60px !important;
+  font-weight: 200 !important;
 }
