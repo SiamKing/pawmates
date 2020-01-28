@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import SearchContainer from './containers/SearchContainer'
 
 class Home extends Component {
 
@@ -9,6 +10,7 @@ class Home extends Component {
             <div className="hero">
                 <div className="hero-text">
                     <h1 className="display-4">Find your <span className="font-weight-normal">Pawmate</span> today</h1>
+                    <SearchContainer />
                 </div>
             </div>
         )

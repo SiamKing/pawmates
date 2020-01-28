@@ -39,3 +39,10 @@ h1 {
   line-height: 60px !important;
   font-weight: 200 !important;
 }
+
+.search-container {
+  background: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 4px;
+}
