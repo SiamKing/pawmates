@@ -8,7 +8,7 @@ const navbar = () => {
   return (
     <Navbar
       bg="light bg-transparent"
-      clasName="d-flex justify-content-around"
+      className="d-flex justify-content-around"
       expand="lg"
     >
       <Navbar.Brand href="/">
