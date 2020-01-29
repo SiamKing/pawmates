@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
+import { Tooltip } from 'react-bootstrap';
+import { OverlayTrigger } from 'react-bootstrap'
 
 const SPECIES = [
     { label: "Select Species", value: "" },
@@ -109,11 +111,17 @@ class Search extends Component {
         })
     }
 
+    renderTooltip = props => {
+        return (
+            this.state.formValid ? '' : <Tooltip className="mt-2" id="tooltip-disabled" {...props}>Please make selections before searching</Tooltip>
+        )
+    }
+
     render() {
         // console.log(this.state.searchCriteria)
         return (
             <div className="d-flex flex-column align-content-center">
-                <p className="mb-4 text-muted p-line-height">We searched the universe to find your pawmate</p>
+                <p className="mb-4 text-muted p-line-height">We searched the universe far and wide to find your pawmate!</p>
                 <div className="panel panel-default">
                     {/* <FormErrors formErrors={this.state.formErrors} /> */}
                 </div>
@@ -131,14 +139,23 @@ class Search extends Component {
                             {this.renderSelect(RADIUSES)}
                         </Form.Control>
                     </Form.Group>
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        onSubmit={this.handleSearchSubmit}
-                        disabled={!this.state.formValid}
+                    <OverlayTrigger
+                        placement="bottom"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={this.renderTooltip}
                     >
-                        Search
-                    </Button>
+                        <span>
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                onSubmit={this.handleSearchSubmit}
+                                disabled={!this.state.formValid}
+                                style={{ pointerEvents: 'none' }}
+                            >
+                                Search
+                            </Button>
+                        </span>
+                    </OverlayTrigger>
                 </Form>
             </div>
         );
