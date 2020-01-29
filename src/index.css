@@ -28,7 +28,7 @@ body {
   padding: 20px 40px !important;
 }
 
-.hero-text {
+.hero-container {
   position: absolute;
   max-width: 400px;
   top: 20%;
@@ -45,4 +45,48 @@ h1 {
   width: 300px;
   height: 300px;
   border-radius: 4px;
+}
+
+.btn-primary {
+  background: #c33f04 !important;
+  border-radius: 18px !important;
+  border-color: white !important;
+  width: 112px;
+}
+
+.btn-primary:hover {
+  background: white !important;
+  border-color: #c33f04 !important;
+  color: #333 !important;
+}
+
+.p-line-height {
+  line-height: 18px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .hero-container {
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0;
+  }
+
+  .hero-text-wrapper {
+    padding: 0 10px;
+    min-height: 300px !important;
+    margin-top: auto;
+    display: flex;
+    direction: column;
+  }
+
+  .hero-text {
+    align-self: flex-end;
+    color: white;
+  }
+
+  .search-container {
+    min-width: 100%;
+    max-height: 30%;
+  }
 }
