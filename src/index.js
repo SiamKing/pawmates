@@ -4,9 +4,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux';
 import './index.css';
 import App from './components/App';
+import manageAnimals from './reducers/manageAnimals'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore();
+const store = createStore(manageAnimals);
 
 ReactDOM.render(
     <Provider store={store}>
