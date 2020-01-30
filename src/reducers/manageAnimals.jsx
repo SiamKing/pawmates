@@ -1,4 +1,4 @@
-export default function manageAnimals(state = { animals: [], requesting: false }, action) {
+export default function manageAnimals(state = { animals: [], error: "", requesting: false }, action) {
     switch (action.type) {
         case "START_ADDIN_ANIMALS_REQUEST":
             return {
@@ -10,7 +10,14 @@ export default function manageAnimals(state = { animals: [], requesting: false }
         case "ADD_ANIMALS":
             return {
                 ...state,
-                animals: action.animals.data,
+                animals: action.animals,
+                requesting: false
+            }
+        
+        case "ERROR":
+            return {
+                ...state,
+                error: action.error,
                 requesting: false
             }
 

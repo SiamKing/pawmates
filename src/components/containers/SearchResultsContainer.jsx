@@ -6,14 +6,17 @@ class SearchResultsContainer extends Component {
     render() {
         console.log(this.props)
         return (
-            <div></div>
+            <div>
+                
+            </div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        animals: state.animals
+        animals: state.animals,
+        error: state.error
     }
 }
 
