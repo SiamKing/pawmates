@@ -63,17 +63,31 @@ h1 {
 .p-line-height {
   line-height: 18px !important;
 }
+p:first-letter {
+  text-transform: capitalize;
+}
 
 .truncate-text {
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 }
 
+.title-card {
+  overflow-wrap: break-word;
+  font-size: 20px;
+}
+
+.card-text {
+  min-height: 100px;
+}
+
 .img-thumbnail {
-  height: 300px !important;
+  resize-mode: 'contain';
+  height: 100px !important;
+  width: 100px !important;
   object-fit: cover;
 }
 
