@@ -13,7 +13,7 @@ export function fetchAnimals(searchFields) {
                 data: {
                     filterRadius: {
                         miles: 25,
-                        postalcode: 8528
+                        postalcode: 85281
                     }
                 }
                 })
@@ -21,12 +21,12 @@ export function fetchAnimals(searchFields) {
             )
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 if (data.errors) {
                     let error = data.errors[0].detail
                     dispatch({ type: "ERROR", error })
                 } else {
-                    dispatch({ type: "ADD_ANIMALS", data })
+                    let animals = data.data
+                    dispatch({ type: "ADD_ANIMALS", animals })
                 }
             })
             .catch(error => console.log(error))
