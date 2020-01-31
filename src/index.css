@@ -64,6 +64,19 @@ h1 {
   line-height: 18px !important;
 }
 
+.truncate-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.img-thumbnail {
+  height: 300px !important;
+  object-fit: cover;
+}
+
 @media only screen and (max-width: 767px) {
   .hero-container {
     display: flex;
