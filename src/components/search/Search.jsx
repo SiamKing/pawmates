@@ -27,7 +27,7 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            searchCriteria: {
+            searchFields: {
                 species: '',
                 zipCode: '',
                 radius: ''
@@ -87,15 +87,15 @@ class Search extends Component {
 
     handleSearchSubmit = event => {
         event.preventDefault();
-        this.props.handleDispatch(this.state.searchCriteria)
+        this.props.handleDispatch(this.state.searchFields)
     }
 
     handleChange = event => {
         const name = event.target.name,
             value = event.target.value;
         this.setState({
-            searchCriteria: {
-                ...this.state.searchCriteria,
+            searchFields: {
+                ...this.state.searchFields,
                 [name]: value
             }
         }, () => { this.validateField(name, value) }
@@ -118,14 +118,14 @@ class Search extends Component {
     }
 
     render() {
-        // console.log(this.state.searchCriteria)
+        // console.log(this.state.searchFields)
         return (
             <div className="d-flex flex-column align-content-center">
                 <p className="mb-4 text-muted p-line-height">We searched the universe far and wide to find your pawmate!</p>
                 <div className="panel panel-default">
                     {/* <FormErrors formErrors={this.state.formErrors} /> */}
                 </div>
-                <Form>
+                <Form onSubmit={this.handleSearchSubmit}>
                     <Form.Group controlId="formSpecies" className={this.errorClass(this.state.formErrors.species)}>
                         <Form.Control as="select" defaultValue="Select Species" name="species" onChange={this.handleChange}>
                             {this.renderSelect(SPECIES)}
@@ -148,7 +148,6 @@ class Search extends Component {
                             <Button
                                 type="submit"
                                 variant="primary"
-                                onSubmit={this.handleSearchSubmit}
                                 disabled={!this.state.formValid}
                                 style={{ pointerEvents: 'none' }}
                             >
