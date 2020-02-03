@@ -2,7 +2,7 @@ export function fetchAnimals(searchFields) {
     return (dispatch) => {
         dispatch({ type: "START_ADDING_ANIMALS_REQUEST" });
         fetch(
-            "https://test1-api.rescuegroups.org/v5/public/animals/search/available/cats/haspic?include=breeds,colors,fosters,locations,orgs,patterns,pictures,species",
+            "https://test1-api.rescuegroups.org/v5/public/animals/search/available/cats/haspic?include=pictures",
             {
                 method: "POST",
                 headers: {
@@ -21,12 +21,12 @@ export function fetchAnimals(searchFields) {
             )
             .then(response => response.json())
             .then(data => {
-                if (data.errors) {
-                    let error = data.errors[0].detail
+                console.log(data)
+                if (data.error) {
+                    let error = data.error[0].detail
                     dispatch({ type: "ERROR", error })
                 } else {
-                    let animals = data.data
-                    dispatch({ type: "ADD_ANIMALS", animals })
+                    dispatch({ type: "ADD_ANIMALS", data })
                 }
             })
             .catch(error => console.log(error))
