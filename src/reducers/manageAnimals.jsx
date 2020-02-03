@@ -1,6 +1,10 @@
-export default function manageAnimals(state = { animals: [], error: "", requesting: false }, action) {
+const initState = {
+    animals: [], error: "", requesting: false 
+}
+
+export default function manageAnimals(state = initState, action) {
     switch (action.type) {
-        case "START_ADDIN_ANIMALS_REQUEST":
+        case "START_ADDING_ANIMALS_REQUEST":
             return {
                 ...state,
                 animals: [...state.animals],
@@ -8,9 +12,18 @@ export default function manageAnimals(state = { animals: [], error: "", requesti
             }
 
         case "ADD_ANIMALS":
+            let animals = action.data.data
+            let pictures = action.data.included
+            let newAnimals = animals.map(animal => {
+                let pics = pictures.find(d => animal.relationships.pictures.data[0].id === d.id)
+                return {
+                    ...animal.attributes,
+                    picture: pics.attributes.large.url
+                }
+            })
             return {
                 ...state,
-                animals: action.animals,
+                animals: newAnimals,
                 requesting: false
             }
         
