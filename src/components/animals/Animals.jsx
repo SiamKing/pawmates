@@ -15,7 +15,7 @@ class Animals extends Component {
                 <Row className="my-2">
                     <CardGroup>
                     {animals.map(animal => {
-                        return <Animal animal={animal} />
+                        return <Animal key={animal.id} animal={animal} />
                     })}
                     </CardGroup>
                 </Row>
