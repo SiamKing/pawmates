@@ -1,5 +1,5 @@
 const initState = {
-    animals: [], error: "", requesting: false 
+    animals: [], error: "", meta: "", searchFields: {}, requesting: false 
 }
 
 export default function manageAnimals(state = initState, action) {
@@ -8,22 +8,27 @@ export default function manageAnimals(state = initState, action) {
             return {
                 ...state,
                 animals: [...state.animals],
+                searchFields: { ...action.searchFields },
                 requesting: true
             }
 
         case "ADD_ANIMALS":
-            let animals = action.data.data
-            let pictures = action.data.included
+            console.log(action.data)
+            let payload = action.data
+            let animals = payload.data
+            let pictures = payload.included
             let newAnimals = animals.map(animal => {
-                let pics = pictures.find(d => animal.relationships.pictures.data[0].id === d.id)
+                let pics = pictures.find(picture => animal.relationships.pictures.data[0].id === picture.id)
                 return {
                     ...animal.attributes,
-                    picture: pics.attributes.large.url
+                    picture: pics.attributes.large.url,
+                    id: animal.id
                 }
             })
             return {
                 ...state,
                 animals: newAnimals,
+                meta: payload.meta,
                 requesting: false
             }
         
