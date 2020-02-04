@@ -68,6 +68,24 @@ p:first-letter {
   text-transform: capitalize;
 }
 
+/* Animals Component */
+
+.page-link {
+  color: #c33f04 !important;
+}
+
+.page-link:hover {
+  border-color: #c33f04 !important;
+}
+
+.page-item.active > .page-link {
+  background-color: #c33f04 !important;
+  color: white !important;
+  border-color: white !important;
+}
+
+/* Animal Component */
+
 .card {
   border: none !important;
   box-shadow: 0 1px 4px rgba(0,0,0,.1)
@@ -86,11 +104,6 @@ p:first-letter {
   font-size: .9rem;
 }
 
-/* .title-card {
-  overflow-wrap: break-word;
-  font-size: 20px;
-} */
-
 .card-text {
   min-height: 100px;
 }
@@ -103,6 +116,23 @@ p:first-letter {
   border: none !important;
   padding: 0px !important;
 }
+
+/* End Animal Component */
+
+/* Loader */
+
+.loader {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.paw-color {
+  color: #c33f04;
+}
+
 
 @media only screen and (max-width: 767px) {
   .hero-container {
