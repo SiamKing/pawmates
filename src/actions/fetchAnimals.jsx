@@ -1,8 +1,10 @@
-export function fetchAnimals(searchFields) {
+export function fetchAnimals(searchFields, pageNumber = 0) {
+    const { species, zipCode, radius } = searchFields;
+    const page = pageNumber ? `page=${pageNumber}&` : '';
     return (dispatch) => {
-        dispatch({ type: "START_ADDING_ANIMALS_REQUEST" });
+        dispatch({ type: "START_ADDING_ANIMALS_REQUEST", searchFields });
         fetch(
-            "https://test1-api.rescuegroups.org/v5/public/animals/search/available/cats/haspic?include=pictures",
+            `https://test1-api.rescuegroups.org/v5/public/animals/search/available/${species}/haspic?${page}limit=24&include=pictures`,
             {
                 method: "POST",
                 headers: {
@@ -12,8 +14,8 @@ export function fetchAnimals(searchFields) {
                 body: JSON.stringify({
                 data: {
                     filterRadius: {
-                        miles: 25,
-                        postalcode: 85281
+                        miles: radius,
+                        postalcode: zipCode
                     }
                 }
                 })
