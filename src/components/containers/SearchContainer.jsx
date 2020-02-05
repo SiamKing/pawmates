@@ -8,9 +8,9 @@ class SearchContainer extends Component {
 
     handleDispatch = searchFields => {
         this.props.fetchAnimals({
-          species: "cats",
-          zipCode: 85281,
-          radius: 25
+            species: "cats",
+            zipCode: 85281,
+            radius: 25
         });
     }
     render() {
