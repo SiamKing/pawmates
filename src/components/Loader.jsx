@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 import { css } from "@emotion/core";
 // Another way to import. This is recommended to reduce bundle size
 import RingLoader from "react-spinners/RingLoader";
@@ -33,10 +32,6 @@ class Loader extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        loading: state.requesting
-    }
-}
 
-export default connect(mapStateToProps)(Loader)
+
+export default Loader
