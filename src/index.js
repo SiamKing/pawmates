@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import configureStore, { history } from './configureStore'
+import { ConnectedRouter } from 'connected-react-router'
 import './index.css';
 import App from './components/App';
-import manageAnimals from './reducers/manageAnimals'
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(manageAnimals, applyMiddleware(thunk));
+const store = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <ConnectedRouter history={history} >
+            <App />
+        </ConnectedRouter>
     </Provider>,
     document.getElementById("root")
 );
