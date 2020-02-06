@@ -27,6 +27,8 @@ export function fetchAnimals(searchFields, pageNumber = 0) {
                 if (data.error) {
                     let error = data.error[0].detail
                     dispatch({ type: "ERROR", error })
+                } else if (data.meta.count === 0) {
+                    dispatch({ type: "NO_RESULTS", data })
                 } else {
                     dispatch({ type: "ADD_ANIMALS", data })
                 }
