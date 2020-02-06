@@ -111,7 +111,6 @@ class Search extends Component {
     }
 
     render() {
-        console.log(this.state.searchFields, this.state.formErrors)
         return (
             <div className="d-flex flex-column align-content-center">
                 <p className="mb-4 text-muted p-line-height">We searched the universe far and wide to find your pawmate!</p>

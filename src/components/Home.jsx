@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 
 import SearchContainer from './containers/SearchContainer'
-import Loader from "../modules/Loader";
-import ErrorModal from '../modules/ErrorModal'
+import Loader from "./modules/Loader";
+import ErrorModal from './modules/ErrorModal'
 
 
 class Home extends Component {

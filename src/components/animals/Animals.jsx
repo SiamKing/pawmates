@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import CardGroup from 'react-bootstrap/CardGroup'
 
 import Animal from './Animal'
-import Paginator from '../../modules/Paginator'
+import Paginator from '../modules/Paginator'
 class Animals extends Component {
 
     render() {

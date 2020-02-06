@@ -4,12 +4,17 @@ import { push } from "connected-react-router";
 
 import Animals from '../animals/Animals';
 import { fetchAnimals } from "../../actions/fetchAnimals";
-import Loader from '../../modules/Loader'
+import Loader from '../modules/Loader'
 
 
 class SearchResultsContainer extends Component {
 
     handleDispatch = pageNumber => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        })
         this.props.fetchAnimalsWithPage(this.props.searchFields, pageNumber)
     }
 
@@ -21,7 +26,7 @@ class SearchResultsContainer extends Component {
 
     render() {
         const { animals, meta } = this.props;
-        console.log(this.props.searchFields)
+        console.log(this.props)
         return (
             <div>
                 <Loader loading={this.props.loading} />
