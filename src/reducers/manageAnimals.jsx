@@ -35,7 +35,7 @@ export default function manageAnimals(state = initState, action) {
         case "NO_RESULTS":
             return {
                 ...state,
-                error: "No pawmates found",
+                error: 0,
                 requesting: false,
                 showErrorModal: true
             }
@@ -43,7 +43,7 @@ export default function manageAnimals(state = initState, action) {
         case "ERROR":
             return {
                 ...state,
-                error: action.error,
+                error: 1,
                 requesting: false
             }
         
