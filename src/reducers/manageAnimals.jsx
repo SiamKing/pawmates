@@ -1,5 +1,5 @@
 const initState = {
-    animals: [], error: "", meta: "", searchFields: {}, requesting: false 
+    animals: [], error: "", meta: "", searchFields: {}, showErrorModal: false, requesting: false 
 }
 
 export default function manageAnimals(state = initState, action) {
@@ -32,11 +32,25 @@ export default function manageAnimals(state = initState, action) {
                 requesting: false
             }
         
+        case "NO_RESULTS":
+            return {
+                ...state,
+                error: "No pawmates found",
+                requesting: false,
+                showErrorModal: true
+            }
+        
         case "ERROR":
             return {
                 ...state,
                 error: action.error,
                 requesting: false
+            }
+        
+        case "CLOSE_MODAL":
+            return {
+                ...state,
+                showErrorModal: false
             }
 
         default:
