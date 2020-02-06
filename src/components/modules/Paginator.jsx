@@ -47,7 +47,7 @@ const Paginator = ({ meta, handleDispatch }) => {
                 </Pagination>
             </Row>
             <Row className="justify-content-md-center">
-                <p>Showing {beginAnimals} thru {lastAnimals} of {count}  </p>
+                <p className="small">Showing {beginAnimals} thru {lastAnimals} of {count}  </p>
             </Row>
         </>
     )
