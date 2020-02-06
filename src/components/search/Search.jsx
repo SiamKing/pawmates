@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
-import { Tooltip } from 'react-bootstrap';
-import { OverlayTrigger } from 'react-bootstrap'
 
 const SPECIES = [
     { label: "Select Species", value: "" },
-    { label: "Dogs", value: "8" },
-    { label: "Cats", value: "3" }
+    { label: "Dogs", value: "dogs" },
+    { label: "Cats", value: "cats" }
 ]
 
 const RADIUSES = [
@@ -88,6 +86,7 @@ class Search extends Component {
     handleSearchSubmit = event => {
         event.preventDefault();
         this.props.handleDispatch(this.state.searchFields)
+        this.searchForm.reset();
     }
 
     handleChange = event => {
@@ -111,51 +110,41 @@ class Search extends Component {
         })
     }
 
-    renderTooltip = props => {
-        return (
-            this.state.formValid ? '' : <Tooltip className="mt-2" id="tooltip-disabled" {...props}>Please make selections before searching</Tooltip>
-        )
-    }
-
     render() {
-        // console.log(this.state.searchFields)
+        console.log(this.state.searchFields, this.state.formErrors)
         return (
             <div className="d-flex flex-column align-content-center">
                 <p className="mb-4 text-muted p-line-height">We searched the universe far and wide to find your pawmate!</p>
                 <div className="panel panel-default">
                     {/* <FormErrors formErrors={this.state.formErrors} /> */}
                 </div>
-                <Form onSubmit={this.handleSearchSubmit}>
+                <form className="form" onSubmit={this.handleSearchSubmit} ref={el => this.searchForm = el}>
+
                     <Form.Group controlId="formSpecies" className={this.errorClass(this.state.formErrors.species)}>
                         <Form.Control as="select" defaultValue="Select Species" name="species" onChange={this.handleChange}>
                             {this.renderSelect(SPECIES)}
                         </Form.Control>
                     </Form.Group>
+
                     <Form.Group controlId="formZipCode" className={this.errorClass(this.state.formErrors.zipCode)}>
                         <Form.Control type="text" placeholder="Enter Zip Code" name="zipCode" onChange={this.handleChange} />
                     </Form.Group>
+
                     <Form.Group controlId="formRadius" className={this.errorClass(this.state.formErrors.radius)}>
                         <Form.Control as="select" defaultValue="Select Distance" name="radius" onChange={this.handleChange}>
                             {this.renderSelect(RADIUSES)}
                         </Form.Control>
                     </Form.Group>
-                    <OverlayTrigger
-                        placement="bottom"
-                        delay={{ show: 250, hide: 400 }}
-                        overlay={this.renderTooltip}
+
+                    <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={!this.state.formValid}
+                        ref=""
                     >
-                        <span>
-                            <Button
-                                type="submit"
-                                variant="primary"
-                                disabled={!this.state.formValid}
-                                style={{ pointerEvents: 'none' }}
-                            >
-                                Search
-                            </Button>
-                        </span>
-                    </OverlayTrigger>
-                </Form>
+                        Search
+                    </button>
+                </form>
             </div>
         );
     }
