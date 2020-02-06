@@ -16,8 +16,8 @@ class Animal extends Component {
                         <div className="mt-3 card-text">
                             <p dangerouslySetInnerHTML={{ __html: animal.descriptionText }} className="truncate-text"></p>
                         </div>
-                        <Button variant="primary" href={animal.url} target="_blank" className="align-self-end">Learn More</Button>
                     </Card.Body>
+                    <Button variant="primary" href={animal.url} target="_blank" className="mb-3 mt-n5 ml-3">Learn More</Button>
                 </Card>
             </Col>
         )
