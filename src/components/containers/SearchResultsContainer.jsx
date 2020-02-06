@@ -4,7 +4,7 @@ import { push } from "connected-react-router";
 
 import Animals from '../animals/Animals';
 import { fetchAnimals } from "../../actions/fetchAnimals";
-import Loader from '../Loader'
+import Loader from '../../modules/Loader'
 
 
 class SearchResultsContainer extends Component {

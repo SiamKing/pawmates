@@ -1,23 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 
 
-const ERRORS = [
-    {
-        title: "Sorry, no pawmates were found in your search.",
-        description: "Please change your search criteria (maybe try expanding the distance)."
-    },
-    {
-        title: "Whoops! Something went wrong!",
-        description: "Please try your search again."
-    }
-]
 
-class ErrorModal extends Component {
 
-    render() {
-        const { showModal, closeModal, error } = this.props
+const ErrorModal = ({ showModal, closeModal, error }) => {
+    const ERRORS = [
+        {
+            title: "Sorry, no pawmates were found in your search.",
+            description: "Please change your search criteria (maybe try expanding the distance)."
+        },
+        {
+            title: "Whoops! Something went wrong!",
+            description: "Please try your search again."
+        }
+    ]
+
         const ERROR = ERRORS[error]
         const { title, description } = ERROR
         return (
@@ -35,7 +34,6 @@ class ErrorModal extends Component {
                 </Modal>
             </>
         )
-    }
 }
 
 export default ErrorModal;

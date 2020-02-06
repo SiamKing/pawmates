@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import { bindActionCreators } from 'redux';
 
 import SearchContainer from './containers/SearchContainer'
-import Loader from "./Loader";
-import ErrorModal from './errors/ErrorModal'
+import Loader from "../modules/Loader";
+import ErrorModal from '../modules/ErrorModal'
 
 
 class Home extends Component {
