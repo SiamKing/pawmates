@@ -22,11 +22,14 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.error)
+        const { animals, loading, error, showErrorModal } = this.props
         return (
             <div className="hero">
-                <Loader loading={this.props.loading} />
-                <ErrorModal showModal={this.props.showErrorModal} closeModal={this.handleCloseModal} />
+                <Loader loading={loading} />
+                {   showErrorModal ?
+                    <ErrorModal showModal={showErrorModal} closeModal={this.handleCloseModal} error={error} />
+                    : null
+                }
                 <div className="hero-container d-flex flex-column">
                     <div className="hero-text-wrapper">
                         <div className="hero-text">
