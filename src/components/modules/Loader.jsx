@@ -12,16 +12,16 @@ const Loader = ({ loading }) => {
     return (
         <>
             { loading ?
-                <div className="loading-overlay">
+                <div className="loader-overlay">
                     <div className="loader">
                             <div className="sweet-loading">
                                 <RingLoader
                                     css={override}
                                     size={100}
-                                    color={"#333"}
+                                    color={"white"}
                                     loading={loading}
                                 />
-                                <h3>Finding your Pawmate</h3>
+                                <h3 className="text-white">Finding your Pawmate</h3>
                             </div >
 
                     </div>
