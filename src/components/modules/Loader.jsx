@@ -1,11 +1,6 @@
 import React from "react";
-import { css } from "@emotion/core";
-import RingLoader from "react-spinners/RingLoader";
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-`;
+import icon from '../../images/icon@1x.svg'
 
 const Loader = ({ loading }) => {
 
@@ -14,16 +9,10 @@ const Loader = ({ loading }) => {
             { loading ?
                 <div className="loader-overlay">
                     <div className="loader">
-                            <div className="sweet-loading">
-                                <RingLoader
-                                    css={override}
-                                    size={100}
-                                    color={"white"}
-                                    loading={loading}
-                                />
-                                <h3 className="text-white">Finding your Pawmate</h3>
-                            </div >
-
+                        <div className="loader-icon">
+                            <img src={icon} alt="pawmate icon" />
+                        </div>
+                        <h3 className="text-white mt-3">Finding your Pawmate</h3>
                     </div>
                 </div>
                 : null
