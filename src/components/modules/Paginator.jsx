@@ -16,14 +16,13 @@ const Paginator = ({ meta, handleDispatch }) => {
     }
     return (
         <>
-            <Row className="justify-content-md-center mt-4">
+            <Row className="flex justify-content-center mt-4">
                 <Pagination>
                     <Pagination.First onClick={() => handleDispatch(pages[0])} />
                     {
                         pageReturned === 1 ? null :
                             <Pagination.Prev onClick={() => handleDispatch(pageReturned - 1)} />
                     }
-                    {/* <Pagination.Item active={pageReturned == 1}>{1}</Pagination.Item> */}
 
                     { pages ?
                         range(pageReturned, pageReturned + 4).map((pageNumber, i) => {
@@ -39,14 +38,13 @@ const Paginator = ({ meta, handleDispatch }) => {
                         : ''
                     }
 
-                    {/* <Pagination.Item >{pages}</Pagination.Item> */}
                     { pageReturned === pages ? null :
                         <Pagination.Next onClick={() => handleDispatch(pageReturned + 1)} />
                     }
                     <Pagination.Last onClick={() => handleDispatch(pages)} />
                 </Pagination>
             </Row>
-            <Row className="justify-content-md-center">
+            <Row className="justify-content-center">
                 <p className="small">Showing {beginAnimals} thru {lastAnimals} of {count}  </p>
             </Row>
         </>
