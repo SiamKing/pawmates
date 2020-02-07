@@ -25,13 +25,13 @@ class SearchResultsContainer extends Component {
     }
 
     render() {
-        const { animals, meta } = this.props;
+        const { animals, meta, searchFields } = this.props;
         console.log(this.props)
         return (
             <div>
                 <Loader loading={this.props.loading} />
                 {this.props.animals ?
-                    <Animals animals={animals} meta={meta} handleDispatch={this.handleDispatch} />
+                    <Animals animals={animals} meta={meta} handleDispatch={this.handleDispatch} searchFields={searchFields} />
                     : ""
                 }
             </div>
