@@ -60,6 +60,10 @@ h1 {
   color: #333 !important;
 }
 
+h1 {
+  text-transform: capitalize;
+}
+
 .p-line-height {
   line-height: 18px !important;
 }
@@ -69,6 +73,22 @@ p:first-letter {
 }
 
 /* Animals Component */
+
+.results-hero-cats {
+  background: url(./images/persian_cat.jpg) no-repeat center center;
+  min-height: 300px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.results-hero-dogs {
+  padding-top: 100px;
+  background: url(./images/doggie_running.png) no-repeat center center, white;
+  background-size: 600px;
+  min-height: 300px;
+}
 
 .page-link {
   color: #c33f04 !important;
