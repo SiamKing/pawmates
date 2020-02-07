@@ -74,9 +74,14 @@ p:first-letter {
 
 /* Animals Component */
 
+.jumbotron-fluid {
+  background-color: white !important;
+  position: relative;
+}
+
 .results-hero-cats {
-  background: url(./images/persian_cat.jpg) no-repeat center center;
-  min-height: 300px;
+  background: url(./images/kitty_min.png) no-repeat center center;
+  min-height: 340px;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -85,9 +90,9 @@ p:first-letter {
 
 .results-hero-dogs {
   padding-top: 100px;
-  background: url(./images/doggie_running.png) no-repeat center center, white;
-  background-size: 600px;
-  min-height: 300px;
+  background: url(./images/beagle_min.png) no-repeat center center, white;
+  min-height: 340px;
+  background-size: 700px;
 }
 
 .page-link {
@@ -140,6 +145,16 @@ p:first-letter {
 /* End Animal Component */
 
 /* Loader */
+
+.loader-icon {
+  display: block;
+  text-align: center;
+}
+
+.loader-icon > img {
+  animation: pulse 1s infinite, magnified 1s 4;
+}
+
 .loader-overlay {
   position: fixed;
   width: 100%;
@@ -194,5 +209,23 @@ p:first-letter {
 @media only screen and (max-width: 576px) {
   .img-thumbnail {
     height: 400px !important;
+  }
+}
+
+@keyframes magnified {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+
+  75% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1.3, 1.3);
   }
 }
