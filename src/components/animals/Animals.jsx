@@ -14,7 +14,7 @@ class Animals extends Component {
         return (
             <>
                 <Jumbotron fluid className={`results-hero-${searchFields.species}`}>
-                    <div className="ml-5 mt-5">
+                    <div className="ml-5 mt-5 d-none d-md-block">
                         <h1 className="ml-5 display-4">{searchFields.species}</h1>
                     </div>
                 </Jumbotron>
