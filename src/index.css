@@ -13,38 +13,14 @@ body {
     monospace;
 } */
 
-.hero {
-  background: url(./images/pawmate_hero.png) no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 100vh;
-  overflow: hidden;
-  margin-top: -105px;
-}
-
 .navbar {
   padding: 20px 40px !important;
-}
-
-.hero-container {
-  position: absolute;
-  max-width: 400px;
-  top: 20%;
-  left: 10%;
 }
 
 h1 {
   line-height: 60px !important;
   font-weight: 200 !important;
-}
-
-.search-container {
-  background: #fff;
-  width: 300px;
-  height: 300px;
-  border-radius: 4px;
+  text-transform: capitalize;
 }
 
 .btn-primary {
@@ -60,10 +36,6 @@ h1 {
   color: #333 !important;
 }
 
-h1 {
-  text-transform: capitalize;
-}
-
 .p-line-height {
   line-height: 18px !important;
 }
@@ -71,6 +43,35 @@ h1 {
 p:first-letter {
   text-transform: capitalize;
 }
+
+/* Home Component */
+
+.hero {
+  margin-top: -105px;
+  background: url(./images/pawmate_hero.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.search-container {
+  background: #fff;
+  width: 300px;
+  height: 300px;
+  border-radius: 4px;
+}
+
+.hero-container {
+  position: absolute;
+  max-width: 400px;
+  top: 20%;
+  left: 10%;
+}
+
+/* End of Home Component */
 
 /* Animals Component */
 
@@ -89,10 +90,12 @@ p:first-letter {
 }
 
 .results-hero-dogs {
-  padding-top: 100px;
-  background: url(./images/beagle_min.png) no-repeat center center, white;
+  background: url(./images/dog_banner.png) no-repeat center center;
   min-height: 340px;
-  background-size: 700px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .page-link {
@@ -143,6 +146,32 @@ p:first-letter {
 }
 
 /* End Animal Component */
+
+/* About Component */
+
+.about-hero {
+  background: url(./images/cat_with_person.png) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
+.about-hero-container {
+  position: absolute;
+  max-width: 400px;
+  top: 20%;
+  left: 60%;
+}
+
+.about-description {
+  line-height: 40px;
+}
+
+/* End of About Component */
 
 /* Loader */
 
@@ -203,6 +232,14 @@ p:first-letter {
   .search-container {
     min-width: 100%;
     max-height: 30%;
+  }
+
+  .about-hero-container {
+    position: absolute;
+    max-width: 100%;
+    top: 30%;
+    left: 0;
+    margin: 0 40px;
   }
 }
 
