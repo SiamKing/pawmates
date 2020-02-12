@@ -23,7 +23,6 @@ export function fetchAnimals(searchFields, pageNumber = 0) {
             )
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 if (data.error) {
                     let error = data.error[0].detail
                     dispatch({ type: "ERROR", error })
