@@ -13,15 +13,14 @@ export default function manageAnimals(state = initState, action) {
             }
 
         case "ADD_ANIMALS":
-            console.log(action.data)
             let payload = action.data
             let animals = payload.data
             let pictures = payload.included
             let newAnimals = animals.map(animal => {
-                let pics = pictures.find(picture => animal.relationships.pictures.data[0].id === picture.id)
+                let pics = animal.relationships ? pictures.find(picture => animal.relationships.pictures.data[0].id === picture.id) : ""
                 return {
                     ...animal.attributes,
-                    picture: pics.attributes.large.url,
+                    picture: pics ? pics.attributes.large.url : "",
                     id: animal.id
                 }
             })
