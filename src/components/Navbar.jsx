@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
 import logo from '../images/pawmate_logo.svg'
 
-const navbar = () => {
+const NavigationBar = () => {
+
   return (
     <Navbar
       bg="light bg-transparent"
@@ -17,7 +18,7 @@ const navbar = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav>
-          <Nav.Link href="/">Pawmate</Nav.Link>
+          <Nav.Link href="/about">About</Nav.Link>
           {/* <Nav.Link href="/animals">Find a Friend</Nav.Link> */}
         </Nav>
       </Navbar.Collapse>
@@ -25,4 +26,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default NavigationBar;
